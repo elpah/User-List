@@ -17,7 +17,6 @@ type Employee = {
 
 function AddEmployeeForm({ onAddEmployee }: Props) {
   const [formIsVisible, setFormIsVisible] = useState<boolean>(false);
-  const [buttonName, setButtonName] = useState<string>("Add New Employee");
   const [employeeNumber, setEmployeeNumber] = useState<string>("");
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
@@ -108,6 +107,7 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
                 className="input__field"
                 type="email"
                 pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                placeholder="email@email.com"
                 required
                 value={email}
                 onChange={(event: ChangeEvent<HTMLInputElement>) =>

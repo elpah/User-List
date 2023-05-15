@@ -4,10 +4,9 @@ import "./employeeCard.css";
 
 interface Props {
   employee: Employee;
-  onDeleteEmployee: (employeeId: string) => void;
+  onDeleteEmployee: (employeeId: any) => void;
   onEditEmployee: (employeeId: string) => void;
 }
-
 export default function EmployeeCard({
   employee,
   onDeleteEmployee,
@@ -20,9 +19,16 @@ export default function EmployeeCard({
           0
         )}.${employee.employeeLastName.charAt(0)}`}</h1>
         <img className="employee__img" src={employee.employeeImg} alt="" />
+        <p className="employee__number">{employee.employeeNumber}</p>
         <p className="employee__fullname">{`${employee.employeeFirstName} ${employee.employeeLastName}`}</p>
         <p className="employee__email">{employee.email}</p>
         <p className="employee__phone">{employee.phoneNumber}</p>
+        <button
+          type="button"
+          onClick={() => onDeleteEmployee(employee.employeeId)}
+        >
+          Delete
+        </button>
       </div>
     </>
   );
