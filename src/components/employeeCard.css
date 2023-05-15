@@ -1,0 +1,37 @@
+.employee__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .employee__initials {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .employee__img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .employee__fullname {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .employee__email,
+  .employee__phone {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 5px;
+  }
+  

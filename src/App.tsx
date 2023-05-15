@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import EmployeeListContainer from "./components/EmployeeListContainer";
+import { Employee } from "./employeeType";
+import AddEmployeeForm from "./components/AddEmployeeForm";
 
 function App() {
+  const [employee, setEmployee] = useState<Employee[]>([]);
+  const handleSaveEmployee = (employeeData: Employee) => {
+    const employee = employeeData;
+    if (employee) {
+      setEmployee((prevState) => {
+        return [employee, ...prevState];
+      });
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AddEmployeeForm onAddEmployee={handleSaveEmployee} />
+      <div className="App">
+        <EmployeeListContainer
+          onEditEmployee={(employeeId) => console.log(employeeId)}
+          employees={employee}
+          onDeleteEmployee={(employeeId) => console.log(employeeId)}
+        />
+      </div>
+    </>
   );
 }
 
