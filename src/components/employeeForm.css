@@ -1,64 +1,76 @@
-.addEmployeeForm {
+
+   .addEmployeeModal {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
-    margin: auto;
-    padding: 30px;
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  .addEmployeeForm {
+    position: relative; /* Add this line to make the close button position relative to the form */
+    width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   
   .form__header {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1.5rem;
-    color: #333;
+    font-size: 20px;
+    margin-bottom: 20px;
   }
   
   .input__div {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .input__label {
     display: block;
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    color: #555;
+    font-size: 16px;
+    margin-bottom: 5px;
   }
   
   .input__field {
     width: 100%;
-    padding: 12px;
-    border-radius: 6px;
+    padding: 5px;
+    font-size: 16px;
     border: 1px solid #ccc;
-    font-size: 1rem;
-    color: #333;
-    transition: border-color 0.3s;
-  }
-  
-  .input__field:focus {
-    outline: none;
-    border-color: #4caf50;
-  }
-  
-  .input__field::placeholder {
-    color: #999;
+    border-radius: 4px;
   }
   
   .Form__button {
-    padding: 12px 20px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
     background-color: #4caf50;
-    color: white;
+    color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
   }
   
-  .Form__button:hover {
-    background-color: #45a049;
+  
+
+  .CloseButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 15px;
+    font-weight: 550;
+    color: #9e9b9b;
+    cursor: pointer;
+    background: none;
+    border:none;
+  }
+  
+  .CloseButton:hover {
+    color: #d50000; 
   }
   

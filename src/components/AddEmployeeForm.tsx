@@ -36,7 +36,7 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
       email: email,
       phoneNumber: phoneNumber,
     });
-    resetForm();
+    //resetForm();
   };
 
   function resetForm() {
@@ -46,85 +46,91 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
     setEmail("");
     setPhoneNumber("");
   }
-  function handleButtonClick() {
-    if (!formIsVisible) {
-      setFormIsVisible(true);
-      setButtonName("Close Form");
-    } else {
-      setFormIsVisible(false);
-      setButtonName("Add New Employee");
-    }
-  }
 
   return (
     <>
-      <button className="AddEmployee" onClick={handleButtonClick}>
-        {buttonName}
-      </button>
+      {!formIsVisible && (
+        <button
+          className="AddEmployee"
+          onClick={() =>
+            !formIsVisible ? setFormIsVisible(true) : setFormIsVisible(false)
+          }
+        >
+          Add New Employee
+        </button>
+      )}
       {formIsVisible && (
-        <form className="addEmployeeForm" onSubmit={handleSubmit}>
-          <h3 className="form__header">Add New Employee</h3>
-          <div className="input__div">
-            <label className="input__label">Employee Number:</label>
-            <input
-              className="input__field"
-              type="text"
-              value={employeeNumber}
-              onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                setEmployeeNumber(event.target.value)
-              }
-            />
-          </div>
-          <div className="input__div">
-            <label className="input__label ">First Name:</label>
-            <input
-              className="input__field"
-              type="text"
-              value={firstName}
-              onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                setFirstName(event.target.value)
-              }
-            />
-          </div>
-          <div className="input__div">
-            <label className="input__label ">Last Name:</label>
-            <input
-              className="input__field"
-              type="text"
-              value={lastName}
-              onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                setLastName(event.target.value)
-              }
-            />
-          </div>
-          <div className="input__div">
-            <label className="input__label">Email Address:</label>
-            <input
-              className="input__field"
-              type="email"
-              pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
-              required
-              value={email}
-              onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                setEmail(event.target.value)
-              }
-            />
-          </div>
-          <div className="input__div">
-            <label className="input__label">Phone Number:</label>
-            <input
-              className="input__field"
-              type="text"
-              value={phoneNumber}
-              onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                setPhoneNumber(event.target.value)
-              }
-            />
-          </div>
-          <button className="Form__button" type="submit">
-            Add Employee
-          </button>
-        </form>
+        <div className="addEmployeeModal">
+          <form className="addEmployeeForm" onSubmit={handleSubmit}>
+            <button
+              className="CloseButton"
+              onClick={() => setFormIsVisible(false)}
+            >
+              X
+            </button>
+            <h3 className="form__header">Add New Employee</h3>
+            <div className="input__div">
+              <label className="input__label">Employee Number:</label>
+              <input
+                className="input__field"
+                type="text"
+                value={employeeNumber}
+                onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                  setEmployeeNumber(event.target.value)
+                }
+              />
+            </div>
+            <div className="input__div">
+              <label className="input__label ">First Name:</label>
+              <input
+                className="input__field"
+                type="text"
+                value={firstName}
+                onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                  setFirstName(event.target.value)
+                }
+              />
+            </div>
+            <div className="input__div">
+              <label className="input__label ">Last Name:</label>
+              <input
+                className="input__field"
+                type="text"
+                value={lastName}
+                onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                  setLastName(event.target.value)
+                }
+              />
+            </div>
+            <div className="input__div">
+              <label className="input__label">Email Address:</label>
+              <input
+                className="input__field"
+                type="email"
+                pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                required
+                value={email}
+                onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                  setEmail(event.target.value)
+                }
+              />
+            </div>
+            <div className="input__div">
+              <label className="input__label">Phone Number:</label>
+              <input
+                className="input__field"
+                type="text"
+                value={phoneNumber}
+                onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                  setPhoneNumber(event.target.value)
+                }
+              />
+            </div>
+            <button className="Form__button" type="submit">
+              Add Employee
+            </button>
+          </form>
+        </div>
       )}
     </>
   );
