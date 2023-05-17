@@ -1,19 +1,20 @@
 import React, { FormEvent, ChangeEvent, useState, useEffect } from "react";
 import "./employeeForm.css";
 import { v4 as uuidv4 } from "uuid";
+import { Employee } from "../employeeType";
 type Props = {
   onAddEmployee: (data: Employee) => void;
 };
 
-type Employee = {
-  employeeId?: string;
-  employeeNumber: string;
-  employeeImg?: string;
-  employeeFirstName: string;
-  employeeLastName: string;
-  email: string;
-  phoneNumber: string;
-};
+// type Employee = {
+//   employeeId?: string;
+//   employeeNumber: string;
+//   employeeImg?: string;
+//   employeeFirstName: string;
+//   employeeLastName: string;
+//   email: string;
+//   phoneNumber: string;
+// };
 
 function AddEmployeeForm({ onAddEmployee }: Props) {
   const [formIsVisible, setFormIsVisible] = useState<boolean>(false);
@@ -23,7 +24,7 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
   const [email, setEmail] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onAddEmployee({
       employeeId: uuidv4(),

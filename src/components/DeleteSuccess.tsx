@@ -1,10 +1,16 @@
 import React from "react";
+import { useState } from "react";
 import "./deleteSuccess.css";
-
-export default function DeleteSuccess() {
+interface Props {
+  onClick: () => void;
+}
+export default function DeleteSuccess({ onClick }: Props) {
   return (
     <div className="delete__modal">
       <div className="delete__box">
+        <button className="closeButton" onClick={onClick}>
+          X
+        </button>
         <h1 className="delete__header">Delete Confirmation</h1>
         <p className="delete__paragraph">Employee Deleted Successfully</p>
         <img

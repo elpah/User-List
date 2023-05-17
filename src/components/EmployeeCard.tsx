@@ -5,7 +5,7 @@ import "./employeeCard.css";
 interface Props {
   employee: Employee;
   onDeleteEmployee: (employeeId: any) => void;
-  onEditEmployee: (employeeId: string) => void;
+  onEditEmployee: (employeeId: any) => void;
 }
 export default function EmployeeCard({
   employee,
@@ -27,7 +27,13 @@ export default function EmployeeCard({
           type="button"
           onClick={() => onDeleteEmployee(employee.employeeId)}
         >
-          Delete
+          delete
+        </button>
+        <button
+          type="button"
+          onClick={() => onEditEmployee(employee.employeeId)}
+        >
+          edit
         </button>
       </div>
     </>
