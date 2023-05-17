@@ -1,50 +1,36 @@
-# About Project
+#Employee Portal
 
-User List is a simple react project Intend
+Employee Portal is a simple Application Built with React that
+helps to manage employee information.
+It provides simple CRUD (Create, Read, Update, Delete) functionality,
+It allows to add a new employee, edit employee information or even delete an employee from the portal.
 
-# Getting Started with Create React App
+# Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To get started with the Employee Portal, follow the steps below:
 
-## Available Scripts
+1. gitclone
+2. Cd into the employee-portal directory.
+   run : cd employee-portal
+3. Install the dependencies:
+   run: npm i
+4. Start the application:
+   run: npm start
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
+This will start the application and open it in your default browser at http://localhost:3000.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#Functionality
+The Employee Portal provides the following features:
 
-### `npm test`
+1. Add Employee: Allow to add a new employee to the portal by entering the employee's information such as employee number, first name, last name, email, and phone number.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Edit Employee: You can edit the information of an existing employee. They can update the employee's number, first name, last name, email, or phone number.
 
-### `npm run build`
+3. Delete Employee: You can delete an employee from the portal. Once deleted, the employee's information will be removed from the system.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#Development
+The Employee Portal is developed using React. It follows a component-based architecture and uses React hooks for state management.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#Contributing
+Contributions to the Employee Portal are welcome. If you find any issues or want to add new features, feel free to open a pull request.
