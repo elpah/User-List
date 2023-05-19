@@ -1,5 +1,5 @@
 import React, { FormEvent, ChangeEvent } from "react";
-import { Employee } from "./employeeType";
+import "./editForm.css";
 
 type Props = {
   onEditSubmit: (event: FormEvent<HTMLFormElement>) => void;
@@ -17,8 +17,6 @@ function EditForm({
   onEditSubmit,
   onInputChange,
   newEmployeeNumber,
-  newEmployeeImg,
-  newInitials,
   newEmployeeFirstName,
   newEmployeeLastName,
   newEmployeeEmail,

@@ -2,20 +2,10 @@ import React, { FormEvent, ChangeEvent, useState, useEffect } from "react";
 import "./employeeForm.css";
 import { v4 as uuidv4 } from "uuid";
 import { Employee } from "../employeeType";
+import AddEmployeeButton from "./AddEmployeeButton";
 type Props = {
   onAddEmployee: (data: Employee) => void;
 };
-
-// type Employee = {
-//   employeeId?: string;
-//   employeeNumber: string;
-//   employeeImg?: string;
-//   employeeFirstName: string;
-//   employeeLastName: string;
-//   email: string;
-//   phoneNumber: string;
-// };
-
 function AddEmployeeForm({ onAddEmployee }: Props) {
   const [formIsVisible, setFormIsVisible] = useState<boolean>(false);
   const [employeeNumber, setEmployeeNumber] = useState<string>("");
@@ -50,14 +40,12 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
   return (
     <>
       {!formIsVisible && (
-        <button
-          className="AddEmployee"
+        <AddEmployeeButton
+          buttonName="Add New Employee"
           onClick={() =>
             !formIsVisible ? setFormIsVisible(true) : setFormIsVisible(false)
           }
-        >
-          Add New Employee
-        </button>
+        />
       )}
       {formIsVisible && (
         <div className="addEmployeeModal">
@@ -109,7 +97,6 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
                 type="email"
                 pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                 placeholder="email@email.com"
-                required
                 value={email}
                 onChange={(event: ChangeEvent<HTMLInputElement>) =>
                   setEmail(event.target.value)

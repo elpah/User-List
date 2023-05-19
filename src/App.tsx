@@ -4,7 +4,7 @@ import EmployeeListContainer from "./components/EmployeeListContainer";
 import { Employee } from "./employeeType";
 import AddEmployeeForm from "./components/EmployeeForm";
 import DeleteSuccess from "./components/DeleteSuccess";
-import EditForm from "./EditForm";
+import EditForm from "./components/EditForm";
 
 function App() {
   const [employee, setEmployee] = useState<Employee[]>([]);
@@ -17,10 +17,6 @@ function App() {
   const [newEmployeeLastName, setNewEmployeeLastName] = useState<string>("");
   const [newEmployeeEmail, setNewEmployeeEmail] = useState<string>("");
   const [newPhoneNumber, setNewPhoneNumber] = useState<string>("");
-
-  // useEffect(() => {
-  //   setEmployee(employee);
-  // }, []);
 
   const handleSaveEmployee = (employeeData: Employee) => {
     const employee = employeeData;
@@ -41,17 +37,17 @@ function App() {
   }
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    name === "newEmployeeNumber"
-      ? setNewEmployeeNumber(value)
-      : name === "newEmployeeFirstName"
-      ? setNewEmployeeFirstName(value)
-      : name === "newEmployeeLastName"
-      ? setNewEmployeeLastName(value)
-      : name === "newEmployeeEmail"
-      ? setNewEmployeeEmail(value)
-      : name === "newPhoneNumber"
-      ? setNewPhoneNumber(value)
-      : null;
+    // name === "newEmployeeNumber"
+    //   ? setNewEmployeeNumber(value)
+    //   : name === "newEmployeeFirstName"
+    //   ? setNewEmployeeFirstName(value)
+    //   : name === "newEmployeeLastName"
+    //   ? setNewEmployeeLastName(value)
+    //   : name === "newEmployeeEmail"
+    //   ? setNewEmployeeEmail(value)
+    //   : name === "newPhoneNumber"
+    //   ? setNewPhoneNumber(value)
+    //   : "";
   };
 
   function handleEditEmployee(employeeId: string) {
@@ -69,12 +65,12 @@ function App() {
       (specifiEmployee) => specifiEmployee.employeeId === newOldId
     );
     if (editEmployee) {
-      editEmployee.employeeId;
+      editEmployee.employeeId = editEmployee.employeeId;
       editEmployee.employeeNumber = newEmployeeNumber;
       editEmployee.employeeFirstName = newEmployeeFirstName;
-      (editEmployee.employeeLastName = newEmployeeLastName),
-        (editEmployee.email = newEmployeeEmail),
-        (editEmployee.phoneNumber = newPhoneNumber);
+      editEmployee.employeeLastName = newEmployeeLastName;
+      editEmployee.email = newEmployeeEmail;
+      editEmployee.phoneNumber = newPhoneNumber;
       setEditProfile(false);
     }
   };
