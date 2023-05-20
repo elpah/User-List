@@ -70,7 +70,7 @@ export default function EmployeeCard({
       {deleteConfirm && (
         <ConfirmDelete
           confirmDelete={() => onDeleteEmployee(employee.employeeId)}
-          cancelDelete={() => console.log("canceled")}
+          cancelDelete={() => setDeleteConfirm(false)}
           employee={employee}
         />
       )}
