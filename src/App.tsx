@@ -5,13 +5,13 @@ import { Employee } from "./employeeType";
 import AddEmployeeForm from "./components/EmployeeForm";
 import DeleteSuccess from "./components/DeleteSuccess";
 import EditForm from "./components/EditForm";
+import ConfirmDelete from "./components/ConfirmDelete";
 
 function App() {
   const [employee, setEmployee] = useState<Employee[]>([]);
   const [deleteConfirm, setDeleteConfirm] = useState<boolean>(false);
   const [editProfile, setEditProfile] = useState<boolean>(false);
   const [newOldId, setnewOldId] = useState<string | undefined>("");
-
   const [newEmployeeNumber, setNewEmployeeNumber] = useState<string>("");
   const [newEmployeeFirstName, setNewEmployeeFirstName] = useState<string>("");
   const [newEmployeeLastName, setNewEmployeeLastName] = useState<string>("");
@@ -76,6 +76,12 @@ function App() {
   };
   return (
     <>
+      {/* {deleteConfirm && (
+        <ConfirmDelete
+          confirmDelete={handleDeleteEmployee}
+          cancelDelete={() => setDeleteConfirm(false)}
+        />
+      )} */}
       {deleteConfirm && (
         <DeleteSuccess onClick={() => setDeleteConfirm(false)} />
       )}

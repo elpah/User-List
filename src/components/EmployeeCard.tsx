@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Employee } from "../employeeType";
 import "./employeeCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import ConfirmDelete from "./ConfirmDelete";
 
 interface Props {
   employee: Employee;
@@ -14,6 +15,8 @@ export default function EmployeeCard({
   onDeleteEmployee,
   onEditEmployee,
 }: Props) {
+  const [deleteConfirm, setDeleteConfirm] = useState<boolean>(false);
+
   return (
     <>
       <div className="employee__card">
@@ -51,7 +54,9 @@ export default function EmployeeCard({
         </div>
         <button
           type="button"
-          onClick={() => onDeleteEmployee(employee.employeeId)}
+          onClick={() => {
+            setDeleteConfirm(true);
+          }}
         >
           delete
         </button>
@@ -62,6 +67,13 @@ export default function EmployeeCard({
           edit
         </button>
       </div>
+      {deleteConfirm && (
+        <ConfirmDelete
+          confirmDelete={() => onDeleteEmployee(employee.employeeId)}
+          cancelDelete={() => console.log("canceled")}
+          employee={employee}
+        />
+      )}
     </>
   );
 }
