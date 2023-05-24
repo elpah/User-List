@@ -41,7 +41,7 @@ function App() {
     }
   };
 
-  const handleDeleteEmployee = (employeeId: string) => {
+  const handleDeleteEmployee = (employeeId: string | undefined) => {
     setTimeout(() => {
       setEmployee((prevState) =>
         prevState.filter((item) => item.employeeId !== employeeId)
@@ -64,7 +64,7 @@ function App() {
     }
   };
 
-  const handleEditEmployee = (employeeId: string) => {
+  const handleEditEmployee = (employeeId: string | undefined) => {
     setEditProfile(true);
     const editEmployeeIndex = employee.findIndex(
       (specificEmployee) => specificEmployee.employeeId === employeeId
@@ -96,6 +96,14 @@ function App() {
       return updatedEmployee;
     });
     setEditProfile(false);
+    formReset();
+  };
+  const formReset = () => {
+    setNewEmployeeNumber("");
+    setNewEmployeeFirstName("");
+    setNewEmployeeLastName("");
+    setNewEmployeeEmail("");
+    setNewPhoneNumber("");
   };
   return (
     <>
@@ -105,14 +113,17 @@ function App() {
       {editProfile && (
         <EditForm
           employeeId={newOldId}
-          newEmployeeNumber={newEmployeeNumber}
-          newEmployeeFirstName={newEmployeeFirstName}
-          newEmployeeLastName={newEmployeeLastName}
-          newEmployeeEmail={newEmployeeEmail}
-          newPhoneNumber={newPhoneNumber}
+          employeeNumber={newEmployeeNumber}
+          employeeFirstName={newEmployeeFirstName}
+          employeeLastName={newEmployeeLastName}
+          email={newEmployeeEmail}
+          phoneNumber={newPhoneNumber}
           onInputChange={handleInputChange}
           onAddNewInformation={handleAddNewInformation}
-          handleEditFormVisibility={() => setEditProfile(false)}
+          handleEditFormVisibility={() => {
+            setEditProfile(false);
+            formReset();
+          }}
         />
       )}
       <AddEmployeeForm onAddEmployee={handleSaveEmployee} />

@@ -1,43 +1,43 @@
 import React, { FormEvent, ChangeEvent } from "react";
 import "./editForm.css";
 import Button from "./Button";
+import { Employee } from "../employeeType";
 
 type Props = {
   handleEditFormVisibility: () => void;
-  onAddNewInformation: (data: any) => void;
+  onAddNewInformation: (data: Employee) => void;
   onInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
   employeeId: any;
-  newEmployeeNumber: string;
-  newEmployeeFirstName: string;
-  newEmployeeLastName: string;
-  newEmployeeEmail: string;
-  newPhoneNumber: string;
+  employeeNumber: string;
+  employeeFirstName: string;
+  employeeLastName: string;
+  email: string;
+  phoneNumber: string;
 };
 
 function EditForm({
   handleEditFormVisibility,
   onAddNewInformation,
   onInputChange,
-  newEmployeeNumber,
-  newEmployeeFirstName,
-  newEmployeeLastName,
-  newEmployeeEmail,
-  newPhoneNumber,
+  employeeNumber,
+  employeeFirstName,
+  employeeLastName,
+  email,
+  phoneNumber,
   employeeId,
 }: Props) {
   function handleEditSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     onAddNewInformation({
       employeeId,
-      newEmployeeNumber,
-      newEmployeeFirstName,
-      newEmployeeLastName,
-      newEmployeeEmail,
-      newPhoneNumber,
-      newEmployeeImg:
+      employeeNumber,
+      employeeFirstName,
+      employeeLastName,
+      email,
+      phoneNumber,
+      employeeImg:
         "https://tse3.mm.bing.net/th?id=OIP.ax-2aejGhCAKkgOxiSAeXAHaHa&pid=Api&P=0",
     });
-    //resetForm()
   }
   return (
     <>
@@ -55,7 +55,7 @@ function EditForm({
             <input
               className="input__field"
               type="text"
-              value={newEmployeeNumber}
+              value={employeeNumber}
               onChange={onInputChange}
               name="newEmployeeNumber"
             />
@@ -66,7 +66,7 @@ function EditForm({
               className="input__field"
               placeholder="FirstName"
               type="text"
-              value={newEmployeeFirstName}
+              value={employeeFirstName}
               onChange={onInputChange}
               name="newEmployeeFirstName"
             />
@@ -77,7 +77,7 @@ function EditForm({
               placeholder="Last Name"
               className="input__field"
               type="text"
-              value={newEmployeeLastName}
+              value={employeeLastName}
               onChange={onInputChange}
               name="newEmployeeLastName"
             />
@@ -90,7 +90,7 @@ function EditForm({
               pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
               placeholder="email@email.com"
               required
-              value={newEmployeeEmail}
+              value={email}
               onChange={onInputChange}
               name="newEmployeeEmail"
             />
@@ -101,7 +101,7 @@ function EditForm({
               placeholder="phoneNumber"
               className="input__field"
               type="text"
-              value={newPhoneNumber}
+              value={phoneNumber}
               onChange={onInputChange}
               name="newPhoneNumber"
             />

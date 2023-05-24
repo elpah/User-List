@@ -4,8 +4,8 @@ import { Employee } from "../employeeType";
 import "./employeeList.css";
 interface Props {
   employees: Employee[];
-  onDeleteEmployee: (employeeId: string) => void;
-  onEditEmployee: (employeeId: string) => void;
+  onDeleteEmployee: (employeeId: string | undefined) => void;
+  onEditEmployee: (employeeId: string | undefined) => void;
 }
 export default function EmployeeListContainer({
   employees,

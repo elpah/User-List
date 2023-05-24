@@ -4,7 +4,7 @@ import "./confirmDelete.css";
 import { Employee } from "../employeeType";
 interface Props {
   employee: Employee;
-  confirmDelete: (employeeId: any) => void;
+  confirmDelete: (employeeId: string | undefined) => void;
   cancelDelete: () => void;
 }
 export default function ConfirmDelete({

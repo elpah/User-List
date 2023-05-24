@@ -7,8 +7,8 @@ import ConfirmDelete from "./ConfirmDelete";
 
 interface Props {
   employee: Employee;
-  onDeleteEmployee: (employeeId: any) => void;
-  onEditEmployee: (employeeId: any) => void;
+  onDeleteEmployee: (employeeId: string | undefined) => void;
+  onEditEmployee: (employeeId: string | undefined) => void;
 }
 export default function EmployeeCard({
   employee,
