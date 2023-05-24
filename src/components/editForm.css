@@ -7,36 +7,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5); 
 }
-
 .editEmployeeForm {
-  width: 300px; /* Adjust the width to your desired size */
-  background-color: #fff;
-  padding: 15px;
+  position: relative;
+  width: 300px; 
+  background-color: rgba(13, 13, 13, 0.8);
+  padding: 10px;
   border-radius: 8px;
+  
 }
-
-.form__header {
-  font-size: 16px; /* Reduce the font size */
+.editEmployeeForm .form__header {
   font-weight: bold;
   margin-bottom: 15px;
 }
-
-.input__field {
-  width: 100%;
-  padding: 6px;
-  font-size: 14px; /* Reduce the font size */
+.editEmployeeForm .input__field {
+  color: rgb(205, 205, 205);
+  width: 95%;
+  margin: auto;
+  font-size: 14px;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
-
-.Form__button {
+.editEmployeeForm .Form__button {
   display: block;
   width: 100%;
   padding: 8px;
   margin-top: 15px;
-  font-size: 14px; /* Reduce the font size */
+  font-size: 14px; 
   font-weight: bold;
   background-color: #4caf50;
   color: #fff;
@@ -44,8 +42,7 @@
   border-radius: 4px;
   cursor: pointer;
 }
-
-
-.Form__button:hover {
+.editEmployeeForm .Form__button:hover {
   background-color: #45a049;
 }
+

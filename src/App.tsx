@@ -1,11 +1,11 @@
-import React, { FormEvent, ChangeEvent, useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, ChangeEvent } from "react";
+
 import "./App.css";
 import EmployeeListContainer from "./components/EmployeeListContainer";
 import { Employee } from "./employeeType";
 import AddEmployeeForm from "./components/EmployeeForm";
 import DeleteSuccess from "./components/DeleteSuccess";
 import EditForm from "./components/EditForm";
-import ConfirmDelete from "./components/ConfirmDelete";
 
 function App() {
   const [employee, setEmployee] = useState<Employee[]>([]);
@@ -17,83 +17,102 @@ function App() {
   const [newEmployeeLastName, setNewEmployeeLastName] = useState<string>("");
   const [newEmployeeEmail, setNewEmployeeEmail] = useState<string>("");
   const [newPhoneNumber, setNewPhoneNumber] = useState<string>("");
+  const [editIndex, setEditIndex] = useState<number>(-1);
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    if (isMounted.current) {
+      localStorage.setItem("employee", JSON.stringify(employee));
+    } else {
+      isMounted.current = true;
+      const storedEmployeeData = localStorage.getItem("employee");
+      if (storedEmployeeData) {
+        const parsedEmployeeData: Employee[] = JSON.parse(storedEmployeeData);
+        setEmployee(parsedEmployeeData);
+      }
+    }
+  }, [employee]);
 
   const handleSaveEmployee = (employeeData: Employee) => {
-    const employee = employeeData;
-    if (employee) {
+    if (employeeData) {
       setEmployee((prevState) => {
-        return [employee, ...prevState];
+        return [employeeData, ...prevState];
       });
     }
   };
 
-  function handleDeleteEmployee(employeeId: string) {
+  const handleDeleteEmployee = (employeeId: string) => {
     setTimeout(() => {
       setEmployee((prevState) =>
         prevState.filter((item) => item.employeeId !== employeeId)
       );
       setDeleteConfirm(true);
     }, 200);
-  }
+  };
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    // name === "newEmployeeNumber"
-    //   ? setNewEmployeeNumber(value)
-    //   : name === "newEmployeeFirstName"
-    //   ? setNewEmployeeFirstName(value)
-    //   : name === "newEmployeeLastName"
-    //   ? setNewEmployeeLastName(value)
-    //   : name === "newEmployeeEmail"
-    //   ? setNewEmployeeEmail(value)
-    //   : name === "newPhoneNumber"
-    //   ? setNewPhoneNumber(value)
-    //   : "";
+    if (name === "newEmployeeNumber") {
+      setNewEmployeeNumber(value);
+    } else if (name === "newEmployeeFirstName") {
+      setNewEmployeeFirstName(value);
+    } else if (name === "newEmployeeLastName") {
+      setNewEmployeeLastName(value);
+    } else if (name === "newEmployeeEmail") {
+      setNewEmployeeEmail(value);
+    } else if (name === "newPhoneNumber") {
+      setNewPhoneNumber(value);
+    }
   };
 
-  function handleEditEmployee(employeeId: string) {
+  const handleEditEmployee = (employeeId: string) => {
     setEditProfile(true);
-    let editEmployee = employee.find(
-      (specifiEmployee) => specifiEmployee.employeeId === employeeId
+    const editEmployeeIndex = employee.findIndex(
+      (specificEmployee) => specificEmployee.employeeId === employeeId
+    );
+    if (editEmployeeIndex >= 0) {
+      setEditIndex(editEmployeeIndex);
+    }
+    const editEmployee = employee.find(
+      (specificEmployee) => specificEmployee.employeeId === employeeId
     );
     if (editEmployee) {
       setnewOldId(editEmployee.employeeId);
     }
-  }
-  const handleEditSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    let editEmployee = employee.find(
-      (specifiEmployee) => specifiEmployee.employeeId === newOldId
-    );
-    if (editEmployee) {
-      editEmployee.employeeId = editEmployee.employeeId;
-      editEmployee.employeeNumber = newEmployeeNumber;
-      editEmployee.employeeFirstName = newEmployeeFirstName;
-      editEmployee.employeeLastName = newEmployeeLastName;
-      editEmployee.email = newEmployeeEmail;
-      editEmployee.phoneNumber = newPhoneNumber;
-      setEditProfile(false);
-    }
+  };
+  const handleAddNewInformation = (data: Employee) => {
+    data = {
+      employeeId: newOldId,
+      employeeNumber: newEmployeeNumber,
+      employeeFirstName: newEmployeeFirstName,
+      employeeLastName: newEmployeeLastName,
+      email: newEmployeeEmail,
+      phoneNumber: newPhoneNumber,
+      employeeImg:
+        "https://tse3.mm.bing.net/th?id=OIP.ax-2aejGhCAKkgOxiSAeXAHaHa&pid=Api&P=0",
+    };
+    setEmployee((prevState) => {
+      const updatedEmployee = [...prevState];
+      updatedEmployee[editIndex] = data;
+      return updatedEmployee;
+    });
+    setEditProfile(false);
   };
   return (
     <>
-      {/* {deleteConfirm && (
-        <ConfirmDelete
-          confirmDelete={handleDeleteEmployee}
-          cancelDelete={() => setDeleteConfirm(false)}
-        />
-      )} */}
       {deleteConfirm && (
         <DeleteSuccess onClick={() => setDeleteConfirm(false)} />
       )}
       {editProfile && (
         <EditForm
+          employeeId={newOldId}
           newEmployeeNumber={newEmployeeNumber}
           newEmployeeFirstName={newEmployeeFirstName}
           newEmployeeLastName={newEmployeeLastName}
           newEmployeeEmail={newEmployeeEmail}
           newPhoneNumber={newPhoneNumber}
           onInputChange={handleInputChange}
-          onEditSubmit={handleEditSubmit}
+          onAddNewInformation={handleAddNewInformation}
+          handleEditFormVisibility={() => setEditProfile(false)}
         />
       )}
       <AddEmployeeForm onAddEmployee={handleSaveEmployee} />

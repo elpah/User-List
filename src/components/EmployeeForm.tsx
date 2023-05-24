@@ -1,8 +1,8 @@
-import React, { FormEvent, ChangeEvent, useState, useEffect } from "react";
+import React, { FormEvent, ChangeEvent, useState } from "react";
 import "./employeeForm.css";
 import { v4 as uuidv4 } from "uuid";
 import { Employee } from "../employeeType";
-import AddEmployeeButton from "./AddEmployeeButton";
+import Button from "./Button";
 type Props = {
   onAddEmployee: (data: Employee) => void;
 };
@@ -26,7 +26,7 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
       email: email,
       phoneNumber: phoneNumber,
     });
-    //resetForm();
+    resetForm();
   };
 
   function resetForm() {
@@ -40,26 +40,30 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
   return (
     <>
       {!formIsVisible && (
-        <AddEmployeeButton
-          buttonName="Add New Employee"
+        <Button
           onClick={() =>
             !formIsVisible ? setFormIsVisible(true) : setFormIsVisible(false)
           }
+          className="addEmployeeButton"
+          buttonType="button"
+          buttonName="Add New Employee"
         />
       )}
       {formIsVisible && (
         <div className="addEmployeeModal">
           <form className="addEmployeeForm" onSubmit={handleSubmit}>
-            <button
+            <Button
+              buttonName="X"
+              buttonType="button"
               className="CloseButton"
               onClick={() => setFormIsVisible(false)}
-            >
-              X
-            </button>
+            />
             <h3 className="form__header">Add New Employee</h3>
             <div className="input__div">
               <label className="input__label">Employee Number:</label>
               <input
+                placeholder="Employee Number"
+                required
                 className="input__field"
                 type="text"
                 value={employeeNumber}
@@ -71,6 +75,8 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
             <div className="input__div">
               <label className="input__label ">First Name:</label>
               <input
+                placeholder="Enter First Name"
+                required
                 className="input__field"
                 type="text"
                 value={firstName}
@@ -82,6 +88,8 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
             <div className="input__div">
               <label className="input__label ">Last Name:</label>
               <input
+                required
+                placeholder="Enter Last Name"
                 className="input__field"
                 type="text"
                 value={lastName}
@@ -93,10 +101,11 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
             <div className="input__div">
               <label className="input__label">Email Address:</label>
               <input
+                required
+                placeholder="email@email.com"
                 className="input__field"
                 type="email"
                 pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
-                placeholder="email@email.com"
                 value={email}
                 onChange={(event: ChangeEvent<HTMLInputElement>) =>
                   setEmail(event.target.value)
@@ -106,6 +115,7 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
             <div className="input__div">
               <label className="input__label">Phone Number:</label>
               <input
+                required
                 className="input__field"
                 type="text"
                 value={phoneNumber}
@@ -114,9 +124,11 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
                 }
               />
             </div>
-            <button className="Form__button" type="submit">
-              Add Employee
-            </button>
+            <Button
+              className="Form__button"
+              buttonName="Add Employee"
+              buttonType="submit"
+            />
           </form>
         </div>
       )}

@@ -10,7 +10,7 @@
     height: 100%;
     background-color: rgba(43, 43, 43, 0.6);
   }
-  
+
   .delete__box {
     position: relative;
     width: 300px;
@@ -45,11 +45,37 @@
     text-align: center;
   }
   
-  .delete__confirm-img {
-    height: 20px;
-    width: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+  .button__div-container{
+    display: flex;
+    justify-content: center;
   }
-  
+
+  .button__div{
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px;
+  }
+
+  .button__div-confirm{
+    background-color: #4caf50;
+  } .button__div-confirm:hover{
+    background-color: #45a049;
+  }
+  .button__div-confirm:focus{
+    outline: none;
+    box-shadow: 0 0 0 2px #4caf50;
+  }
+  .button__div-cancel{
+    background-color: #e53935;
+  }
+  .button__div-cancel:hover{
+    background-color: #c62828;
+  }
+  .button__div-cancel:focus{
+    outline: none;
+  box-shadow: 0 0 0 2px #e53935;
+  }

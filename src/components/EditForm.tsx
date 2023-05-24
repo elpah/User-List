@@ -1,12 +1,13 @@
 import React, { FormEvent, ChangeEvent } from "react";
 import "./editForm.css";
+import Button from "./Button";
 
 type Props = {
-  onEditSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  handleEditFormVisibility: () => void;
+  onAddNewInformation: (data: any) => void;
   onInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  employeeId: any;
   newEmployeeNumber: string;
-  newInitials?: string;
-  newEmployeeImg?: string;
   newEmployeeFirstName: string;
   newEmployeeLastName: string;
   newEmployeeEmail: string;
@@ -14,18 +15,40 @@ type Props = {
 };
 
 function EditForm({
-  onEditSubmit,
+  handleEditFormVisibility,
+  onAddNewInformation,
   onInputChange,
   newEmployeeNumber,
   newEmployeeFirstName,
   newEmployeeLastName,
   newEmployeeEmail,
   newPhoneNumber,
+  employeeId,
 }: Props) {
+  function handleEditSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    onAddNewInformation({
+      employeeId,
+      newEmployeeNumber,
+      newEmployeeFirstName,
+      newEmployeeLastName,
+      newEmployeeEmail,
+      newPhoneNumber,
+      newEmployeeImg:
+        "https://tse3.mm.bing.net/th?id=OIP.ax-2aejGhCAKkgOxiSAeXAHaHa&pid=Api&P=0",
+    });
+    //resetForm()
+  }
   return (
     <>
       <div className="editEmployeeModal">
-        <form className="editEmployeeForm" onSubmit={onEditSubmit}>
+        <form className="editEmployeeForm" onSubmit={handleEditSubmit}>
+          <Button
+            buttonName="X"
+            buttonType="button"
+            className="CloseButton"
+            onClick={handleEditFormVisibility}
+          />
           <h3 className="form__header">Edit Employee Data</h3>
           <div className="input__div">
             <label className="input__label">Employee Number:</label>
@@ -83,9 +106,11 @@ function EditForm({
               name="newPhoneNumber"
             />
           </div>
-          <button className="Form__button" type="submit">
-            Save
-          </button>
+          <Button
+            buttonType="submit"
+            buttonName="Save"
+            className="Form__button"
+          />
         </form>
       </div>
     </>

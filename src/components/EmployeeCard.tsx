@@ -20,17 +20,21 @@ export default function EmployeeCard({
   return (
     <>
       <div className="employee__card">
-        <h2 className="employee__initials">{`${employee.employeeFirstName.charAt(
-          0
-        )}.${employee.employeeLastName.charAt(0)}`}</h2>
+        <h2 className="employee__initials">
+          {`${employee.employeeFirstName
+            .charAt(0)
+            .toUpperCase()}.${employee.employeeLastName
+            .charAt(0)
+            .toUpperCase()}`}
+        </h2>
         <div className="img__name-number">
           <img
             className="employee__img"
             src={employee.employeeImg}
-            alt="no Image found"
+            alt="employee Profile Img"
           />
           <div className="name__number">
-            <p className="employee__fullname">{`${employee.employeeFirstName} ${employee.employeeLastName}`}</p>
+            <p className="employee__fullname">{`${employee.employeeFirstName.toUpperCase()} ${employee.employeeLastName.toUpperCase()}`}</p>
             <p className="employee__number">{employee.employeeNumber}</p>
           </div>
         </div>
@@ -41,7 +45,9 @@ export default function EmployeeCard({
               style={{ color: "#4e4a4a", marginRight: 10 }}
               icon={faEnvelope}
             />
-            {employee.email}
+            <a href={`mailto:${employee.email}`}>
+              {employee.email.toLowerCase()}
+            </a>
           </p>
           <p className="employee__phone">
             <FontAwesomeIcon
@@ -49,7 +55,7 @@ export default function EmployeeCard({
               style={{ color: "#4e4a4a", marginRight: 10 }}
               icon={faPhone}
             />
-            {employee.phoneNumber}
+            <a href={`tel:${employee.phoneNumber}`}>{employee.phoneNumber}</a>
           </p>
         </div>
         <button

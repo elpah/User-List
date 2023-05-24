@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
 import "./deleteSuccess.css";
+import Button from "./Button";
 interface Props {
   onClick: () => void;
 }
@@ -8,9 +8,12 @@ export default function DeleteSuccess({ onClick }: Props) {
   return (
     <div className="delete__modal">
       <div className="delete__box">
-        <button className="closeButton" onClick={onClick}>
-          X
-        </button>
+        <Button
+          buttonType="button"
+          onClick={onClick}
+          buttonName="X"
+          className="closeButton"
+        />
         <h1 className="delete__header">Delete Confirmation</h1>
         <p className="delete__paragraph">Employee Deleted Successfully</p>
         <img

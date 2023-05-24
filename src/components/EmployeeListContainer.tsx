@@ -7,7 +7,7 @@ interface Props {
   onDeleteEmployee: (employeeId: string) => void;
   onEditEmployee: (employeeId: string) => void;
 }
-export default function ({
+export default function EmployeeListContainer({
   employees,
   onDeleteEmployee,
   onEditEmployee,
