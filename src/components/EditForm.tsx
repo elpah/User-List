@@ -98,7 +98,8 @@ function EditForm({
           <div className="input__div">
             <label className="input__label">Phone Number:</label>
             <input
-              placeholder="phoneNumber"
+              placeholder="+000-XXXXXXXXX"
+              pattern="^\+[0-9]{2,3}-[0-9]{9,10}$"
               className="input__field"
               type="text"
               value={phoneNumber}

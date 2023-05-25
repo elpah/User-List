@@ -117,7 +117,9 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
               <input
                 required
                 className="input__field"
+                pattern="^\+[0-9]{2,3}-[0-9]{9,10}$"
                 type="text"
+                placeholder="+000-XXXXXXXXX"
                 value={phoneNumber}
                 onChange={(event: ChangeEvent<HTMLInputElement>) =>
                   setPhoneNumber(event.target.value)
