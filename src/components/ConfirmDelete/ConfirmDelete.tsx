@@ -1,7 +1,7 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../Button/Button";
 import "./confirmDelete.css";
-import { Employee } from "../employeeType";
+import { Employee } from "../../employeeType";
 interface Props {
   employee: Employee;
   confirmDelete: (employeeId: string | undefined) => void;

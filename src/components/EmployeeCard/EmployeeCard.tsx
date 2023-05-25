@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Employee } from "../employeeType";
+import { Employee } from "../../employeeType";
 import "./employeeCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
   faPhone,
   faEllipsisV,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
-import ConfirmDelete from "./ConfirmDelete";
+import ConfirmDelete from "../ConfirmDelete/ConfirmDelete";
 
 interface Props {
   employee: Employee;
@@ -40,7 +41,11 @@ export default function EmployeeCard({
               !showCard ? setShowCard(true) : setShowCard(false);
             }}
           >
-            <FontAwesomeIcon icon={faEllipsisV} />
+            {showCard ? (
+              <FontAwesomeIcon icon={faTimes} />
+            ) : (
+              <FontAwesomeIcon icon={faEllipsisV} />
+            )}
           </button>
 
           {showCard && (

@@ -1,8 +1,8 @@
 import React, { FormEvent, ChangeEvent, useState } from "react";
 import "./employeeForm.css";
 import { v4 as uuidv4 } from "uuid";
-import { Employee } from "../employeeType";
-import Button from "./Button";
+import { Employee } from "../../employeeType";
+import Button from "../Button/Button";
 type Props = {
   onAddEmployee: (data: Employee) => void;
 };

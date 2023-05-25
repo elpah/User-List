@@ -1,6 +1,6 @@
 import React from "react";
-import EmployeeCard from "./EmployeeCard";
-import { Employee } from "../employeeType";
+import EmployeeCard from "../EmployeeCard/EmployeeCard";
+import { Employee } from "../../employeeType";
 import "./employeeList.css";
 interface Props {
   employees: Employee[];

@@ -1,7 +1,7 @@
 import React, { FormEvent, ChangeEvent } from "react";
 import "./editForm.css";
-import Button from "./Button";
-import { Employee } from "../employeeType";
+import Button from "../Button/Button";
+import { Employee } from "../../employeeType";
 
 type Props = {
   handleEditFormVisibility: () => void;

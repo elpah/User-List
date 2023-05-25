@@ -1,6 +1,6 @@
 import React from "react";
 import "./deleteSuccess.css";
-import Button from "./Button";
+import Button from "../Button/Button";
 interface Props {
   onClick: () => void;
 }

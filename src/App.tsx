@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, ChangeEvent } from "react";
 
 import "./App.css";
-import EmployeeListContainer from "./components/EmployeeListContainer";
+import EmployeeListContainer from "./components/EmployeeList/EmployeeListContainer";
 import { Employee } from "./employeeType";
-import AddEmployeeForm from "./components/EmployeeForm";
-import DeleteSuccess from "./components/DeleteSuccess";
-import EditForm from "./components/EditForm";
+import AddEmployeeForm from "./components/EmployeeForm/EmployeeForm";
+import DeleteSuccess from "./components/DeleteSuccess/DeleteSuccess";
+import EditForm from "./components/EditForm/EditForm";
 
 function App() {
   const [employee, setEmployee] = useState<Employee[]>([]);
