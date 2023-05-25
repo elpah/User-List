@@ -7,27 +7,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.7); 
 }
 .editEmployeeForm {
   position: relative;
-  width: 300px; 
-  background-color: rgba(13, 13, 13, 0.8);
+  width: 350px; 
+  background-color: rgb(3, 3, 3);
   padding: 10px;
   border-radius: 8px;
-  
 }
 .editEmployeeForm .form__header {
   font-weight: bold;
   margin-bottom: 15px;
 }
 .editEmployeeForm .input__field {
-  color: rgb(205, 205, 205);
   width: 95%;
   margin: auto;
   font-size: 14px;
   border-radius: 4px;
-  border: 1px solid #ccc;
 }
 .editEmployeeForm .Form__button {
   display: block;
@@ -45,4 +42,3 @@
 .editEmployeeForm .Form__button:hover {
   background-color: #45a049;
 }
-

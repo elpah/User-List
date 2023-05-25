@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Employee } from "../employeeType";
 import "./employeeCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faPhone,
+  faEllipsisV,
+} from "@fortawesome/free-solid-svg-icons";
 import ConfirmDelete from "./ConfirmDelete";
 
 interface Props {
@@ -16,17 +20,53 @@ export default function EmployeeCard({
   onEditEmployee,
 }: Props) {
   const [deleteConfirm, setDeleteConfirm] = useState<boolean>(false);
+  const [showCard, setShowCard] = useState<boolean>(false);
 
   return (
     <>
       <div className="employee__card">
-        <h2 className="employee__initials">
-          {`${employee.employeeFirstName
-            .charAt(0)
-            .toUpperCase()}.${employee.employeeLastName
-            .charAt(0)
-            .toUpperCase()}`}
-        </h2>
+        <div className="initials__divContainer">
+          <h2 className="employee__initials">
+            {`${employee.employeeFirstName
+              .charAt(0)
+              .toUpperCase()}.${employee.employeeLastName
+              .charAt(0)
+              .toUpperCase()}`}
+          </h2>
+
+          <button
+            className="dropdown__icon"
+            onClick={() => {
+              !showCard ? setShowCard(true) : setShowCard(false);
+            }}
+          >
+            <FontAwesomeIcon icon={faEllipsisV} />
+          </button>
+
+          {showCard && (
+            <div className="dropdown__card">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowCard(false);
+                  setDeleteConfirm(true);
+                }}
+              >
+                delete
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setShowCard(false);
+                  onEditEmployee(employee.employeeId);
+                }}
+              >
+                edit
+              </button>
+            </div>
+          )}
+        </div>
+
         <div className="img__name-number">
           <img
             className="employee__img"
@@ -58,21 +98,8 @@ export default function EmployeeCard({
             <a href={`tel:${employee.phoneNumber}`}>{employee.phoneNumber}</a>
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => {
-            setDeleteConfirm(true);
-          }}
-        >
-          delete
-        </button>
-        <button
-          type="button"
-          onClick={() => onEditEmployee(employee.employeeId)}
-        >
-          edit
-        </button>
       </div>
+
       {deleteConfirm && (
         <ConfirmDelete
           confirmDelete={() => onDeleteEmployee(employee.employeeId)}
