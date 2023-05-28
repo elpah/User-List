@@ -1,6 +1,6 @@
 import React from "react";
 interface Props {
-  buttonType: "button" | "reset" | "submit";
+  buttonType: "button" | "submit";
   onClick?: (argument?: any) => void;
   buttonName: string;
   className: string;

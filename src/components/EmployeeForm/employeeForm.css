@@ -1,4 +1,4 @@
-.addEmployeeButton {
+.add-employee__button {
   background-color: transparent;
   border: none;
   color: #373737;
@@ -12,13 +12,12 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.addEmployeeButton:hover {
+.add-employee__button:hover {
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.23);
 }
 
-
-.addEmployeeModal {
+.add-employee__modal {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +31,7 @@
   z-index: 999;
 }
 
-.addEmployeeForm {
+.add-employee__form {
   position: relative;
   width: 400px;
   background-color: rgba(0, 0, 0, 0.8);
@@ -41,23 +40,20 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.form__header {
+.add-employee__form-header {
   font-size: 20px;
   margin-bottom: 20px;
   color: #fff;
 }
-
 .input__div {
   margin-bottom: 10px;
 }
-
 .input__label {
   display: block;
   font-size: 16px;
   margin-bottom: 5px;
   color: #fff;
 }
-
 .input__field {
   width: 97%;
   padding: 5px;
@@ -68,7 +64,7 @@
   color: #fff;
 }
 
-.Form__button {
+.form__button {
   width: 100%;
   margin-top: 20px;
   padding: 10px 20px;
@@ -79,7 +75,7 @@
   border-radius: 4px;
   cursor: pointer;
 }
-.Form__button:hover{
+.form__button:hover{
   background-color: #1d9621;
 }
 .CloseButton {

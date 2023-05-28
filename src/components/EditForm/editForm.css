@@ -1,4 +1,4 @@
-.editEmployeeModal {
+.edit-employee__modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,26 +7,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.7); 
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1;
 }
-.editEmployeeForm {
+.edit-employee__form {
   position: relative;
   width: 350px; 
   background-color: rgb(3, 3, 3);
   padding: 10px;
   border-radius: 8px;
 }
-.editEmployeeForm .form__header {
+.edit-employee__form .form__header {
   font-weight: bold;
   margin-bottom: 15px;
+  color: #d2d2d2;
 }
-.editEmployeeForm .input__field {
+.edit-employee__form .input__field {
   width: 95%;
   margin: auto;
   font-size: 14px;
   border-radius: 4px;
 }
-.editEmployeeForm .Form__button {
+.edit-employee__form .form__button {
   display: block;
   width: 100%;
   padding: 8px;
@@ -39,6 +41,6 @@
   border-radius: 4px;
   cursor: pointer;
 }
-.editEmployeeForm .Form__button:hover {
+.edit-employee__form .form__button:hover {
   background-color: #45a049;
 }

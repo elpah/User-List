@@ -1,4 +1,3 @@
-
 .employee__card {
   display: flex;
   flex-direction: column;
@@ -7,9 +6,8 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   height: 220px;
-  max-width: 350px;
 }
-.initials__divContainer{
+.initials__div-container{
    position: relative; 
   display: flex;
   flex-direction: row;
@@ -63,8 +61,6 @@ color: #3d3d3d;}
 .dropdown__icon:hover{
   color:  #000000;
 }
- 
-
 .img__name-number{
   display: flex;
   margin-left: 50px;
@@ -77,10 +73,8 @@ color: #3d3d3d;}
   object-fit: cover;
   border-radius: 50%;
 }
-
 .employee__fullname {
   font-size: 18px;
-  
   margin-bottom: 0;
 }
 .employee__number{
@@ -94,7 +88,6 @@ color: #3d3d3d;}
   font-size: 0.9rem;
   color: #0a0a0a;
   margin-bottom: 5px;
- 
 }
 
 .employee__phone{
@@ -109,5 +102,4 @@ font-size: 15px;
 }
 a:hover{
   color:rgb(9, 9, 171);
-  
 }

@@ -44,21 +44,21 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
           onClick={() =>
             !formIsVisible ? setFormIsVisible(true) : setFormIsVisible(false)
           }
-          className="addEmployeeButton"
+          className="add-employee__button"
           buttonType="button"
           buttonName="Add New Employee"
         />
       )}
       {formIsVisible && (
-        <div className="addEmployeeModal">
-          <form className="addEmployeeForm" onSubmit={handleSubmit}>
+        <div className="add-employee__modal">
+          <form className="add-employee__form" onSubmit={handleSubmit}>
             <Button
               buttonName="X"
               buttonType="button"
               className="CloseButton"
               onClick={() => setFormIsVisible(false)}
             />
-            <h3 className="form__header">Add New Employee</h3>
+            <h3 className="add-employee__form-header">Add New Employee</h3>
             <div className="input__div">
               <label className="input__label">Employee Number:</label>
               <input
@@ -117,9 +117,9 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
               <input
                 required
                 className="input__field"
-                pattern="^\+[0-9]{2,3}-[0-9]{9,10}$"
+                pattern="^\+[0-9]{2,3}[0-9]{9,10}$"
                 type="text"
-                placeholder="+000-XXXXXXXXX"
+                placeholder="+233XXXXXXXXX"
                 value={phoneNumber}
                 onChange={(event: ChangeEvent<HTMLInputElement>) =>
                   setPhoneNumber(event.target.value)
@@ -127,7 +127,7 @@ function AddEmployeeForm({ onAddEmployee }: Props) {
               />
             </div>
             <Button
-              className="Form__button"
+              className="form__button"
               buttonName="Add Employee"
               buttonType="submit"
             />

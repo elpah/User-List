@@ -41,8 +41,8 @@ function EditForm({
   }
   return (
     <>
-      <div className="editEmployeeModal">
-        <form className="editEmployeeForm" onSubmit={handleEditSubmit}>
+      <div className="edit-employee__modal">
+        <form className="edit-employee__form" onSubmit={handleEditSubmit}>
           <Button
             buttonName="X"
             buttonType="button"
@@ -99,7 +99,7 @@ function EditForm({
             <label className="input__label">Phone Number:</label>
             <input
               placeholder="+000-XXXXXXXXX"
-              pattern="^\+[0-9]{2,3}-[0-9]{9,10}$"
+              pattern="^\+[0-9]{2,3}[0-9]{9,10}$"
               className="input__field"
               type="text"
               value={phoneNumber}
@@ -110,7 +110,7 @@ function EditForm({
           <Button
             buttonType="submit"
             buttonName="Save"
-            className="Form__button"
+            className="form__button"
           />
         </form>
       </div>

@@ -5,6 +5,4 @@ export type Employee={
     employeeFirstName:string,
     employeeLastName:string
     email:string,
-    phoneNumber:string
-   
-}
+    phoneNumber:string}

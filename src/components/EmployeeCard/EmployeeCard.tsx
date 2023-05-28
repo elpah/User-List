@@ -26,7 +26,7 @@ export default function EmployeeCard({
   return (
     <>
       <div className="employee__card">
-        <div className="initials__divContainer">
+        <div className="initials__div-container">
           <h2 className="employee__initials">
             {`${employee.employeeFirstName
               .charAt(0)
