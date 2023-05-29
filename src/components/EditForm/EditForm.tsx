@@ -53,6 +53,7 @@ function EditForm({
           <div className="input__div">
             <label className="input__label">Employee Number:</label>
             <input
+              placeholder="Employee Number"
               className="input__field"
               type="text"
               value={employeeNumber}
@@ -64,7 +65,7 @@ function EditForm({
             <label className="input__label ">First Name:</label>
             <input
               className="input__field"
-              placeholder="FirstName"
+              placeholder="First Name"
               type="text"
               value={employeeFirstName}
               onChange={onInputChange}

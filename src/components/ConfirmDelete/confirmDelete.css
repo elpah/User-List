@@ -1,5 +1,6 @@
 .delete__modal {
     display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -8,7 +9,6 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    background-color: rgba(43, 43, 43, 0.6);
   }
 
   .delete__box {
@@ -61,19 +61,22 @@
   }
 
   .button__div-confirm{
-    background-color: #4caf50;
+    background-color: #00a708;
+
   } .button__div-confirm:hover{
-    background-color: #45a049;
+    background-color: #2e7e30;
+
   }
   .button__div-confirm:focus{
     outline: none;
     box-shadow: 0 0 0 2px #4caf50;
   }
   .button__div-cancel{
-    background-color: #e53935;
+    background-color: #c62828;
+
   }
   .button__div-cancel:hover{
-    background-color: #c62828;
+    background-color: #962a28;
   }
   .button__div-cancel:focus{
     outline: none;

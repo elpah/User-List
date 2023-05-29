@@ -13,8 +13,8 @@
 .edit-employee__form {
   position: relative;
   width: 350px; 
-  background-color: rgb(3, 3, 3);
-  padding: 10px;
+  background-color: rgb(40, 39, 44);
+  padding: 20px;
   border-radius: 8px;
 }
 .edit-employee__form .form__header {

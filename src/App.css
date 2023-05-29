@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
 body {
-  background: url(https://images.unsplash.com/photo-1523878288860-7ad281611901?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdlYnNpdGUlMjBiYWNrZ3JvdW5kJTIwaW1hZ2V8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=800&q=60) no-repeat center center fixed;
+  /* background: url(https://images.unsplash.com/photo-1523878288860-7ad281611901?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdlYnNpdGUlMjBiYWNrZ3JvdW5kJTIwaW1hZ2V8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=800&q=60) no-repeat center center fixed; */
   background-size: cover;
   width: 80%;
   margin: 10%;
   margin-top: 20px;
+  background-color: #1e1d23;
+  /* font-family: poppins; */
 }
 

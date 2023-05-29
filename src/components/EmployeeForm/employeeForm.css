@@ -1,7 +1,7 @@
 .add-employee__button {
-  background-color: transparent;
+  background-color: rgb(119, 90, 206);
+  color: #fff;
   border: none;
-  color: #373737;
   font-size: 18px;
   padding: 10px 20px;
   border-radius: 30px;
@@ -9,11 +9,10 @@
   position: relative;
   overflow: hidden;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .add-employee__button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color:rgb(84, 70, 126);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.23);
 }
 
@@ -28,13 +27,13 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 1;
 }
 
 .add-employee__form {
   position: relative;
   width: 400px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(40, 39, 44);
   padding: 20px;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -58,9 +57,9 @@
   width: 97%;
   padding: 5px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(64, 64, 74);
   border-radius: 4px;
-  background-color: transparent;
+  background-color: rgb(64, 64, 74);
   color: #fff;
 }
 
@@ -69,7 +68,7 @@
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #35a139;
+  background-color: #28732b;
   color: #fff;
   border: none;
   border-radius: 4px;
