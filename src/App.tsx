@@ -77,6 +77,11 @@ function App() {
     );
     if (editEmployee) {
       setnewOldId(editEmployee.employeeId);
+      setNewEmployeeFirstName(editEmployee.employeeFirstName);
+      setNewEmployeeLastName(editEmployee.employeeLastName);
+      setNewEmployeeNumber(editEmployee.employeeNumber);
+      setNewEmployeeEmail(editEmployee.email);
+      setNewPhoneNumber(editEmployee.phoneNumber);
     }
   };
   const handleAddNewInformation = (data: Employee) => {
@@ -98,6 +103,7 @@ function App() {
     setEditProfile(false);
     formReset();
   };
+
   const formReset = () => {
     setNewEmployeeNumber("");
     setNewEmployeeFirstName("");
