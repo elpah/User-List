@@ -6,8 +6,10 @@ import { Employee } from "./employeeType";
 import AddEmployeeForm from "./components/EmployeeForm/EmployeeForm";
 import DeleteSuccess from "./components/DeleteSuccess/DeleteSuccess";
 import EditForm from "./components/EditForm/EditForm";
+import Navbar from "./components/NavBar/Navbar";
 
 function App() {
+  const [formIsVisible, setFormIsVisible] = useState<boolean>(false);
   const [employee, setEmployee] = useState<Employee[]>([]);
   const [deleteConfirm, setDeleteConfirm] = useState<boolean>(false);
   const [editProfile, setEditProfile] = useState<boolean>(false);
@@ -113,6 +115,10 @@ function App() {
   };
   return (
     <>
+    <Navbar onClick={()=>setFormIsVisible(!formIsVisible)}/>
+    {formIsVisible &&
+    <AddEmployeeForm  handleFormClose={()=>setFormIsVisible(!formIsVisible)} onAddEmployee={handleSaveEmployee} />}
+
       {deleteConfirm && (
         <DeleteSuccess onClick={() => setDeleteConfirm(false)} />
       )}
@@ -132,7 +138,7 @@ function App() {
           }}
         />
       )}
-      <AddEmployeeForm onAddEmployee={handleSaveEmployee} />
+      {/* <AddEmployeeForm onAddEmployee={handleSaveEmployee} /> */}
       <div className="App">
         <EmployeeListContainer
           employees={employee}
