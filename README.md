@@ -1,10 +1,7 @@
 # Employee Portal
 ## Preview
-https://github.com/elpah/employee-portal/assets/81959047/f1edeeeb-8560-4869-a8e0-dd0755afff1c
-https://github.com/elpah/employee-portal/assets/81959047/877790c8-2da4-487b-aad9-b099996d5bc3
-https://github.com/elpah/employee-portal/assets/81959047/bc4049e2-e24a-4156-82b1-ec7987dc921b
-https://github.com/elpah/employee-portal/assets/81959047/f9a1d4e4-1bc0-491d-b43f-ab95e0b51570
-https://github.com/elpah/employee-portal/assets/81959047/b1eb3e24-6798-43a4-a365-c9ee93d6028a
+<img width="1440" alt="ep1" src="https://github.com/elpah/Elpahtronics/assets/81959047/1fc83fa5-0a2b-415d-86ce-8ec843bcec74">
+
 
 Employee Portal is a simple Application Built with React that
 helps to manage employee information.
