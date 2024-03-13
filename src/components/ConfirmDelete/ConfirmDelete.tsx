@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button/Button";
-import "./confirmDelete.css";
+import styles from  "./confirmDelete.module.css";
 import { Employee } from "../../employeeType";
 interface Props {
   employee: Employee;
@@ -13,23 +13,19 @@ export default function ConfirmDelete({
   employee,
 }: Props) {
   return (
-    <div className="delete__modal">
-      <div className="delete__box">
-        <h1 className="delete__header">Confirm Delete!</h1>
-        <p className="delete__paragraph">Do you want to delete employee?</p>
-        <div className="button__div-container">
-          <Button
-            className="button__div button__div-confirm"
-            buttonType="button"
+    <div className={styles.delete__modal}>
+      <div className={styles.delete__box}>
+        <h1 className={styles.delete__header}>Confirm Delete!</h1>
+        <p className={styles.delete__paragraph}>Do you want to delete employee?</p>
+        <div className={styles.button__div_container}>
+          <button
+            className={`${styles.button__div} ${styles.button__div_confirm}`}
             onClick={() => confirmDelete(employee.employeeId)}
-            buttonName="confirm"
-          ></Button>
-          <Button
-            className="button__div button__div-cancel"
-            buttonType="button"
+            >confirm</button>
+          <button
+            className={`${styles.button__div} ${styles.button__div_cancel}`}
             onClick={cancelDelete}
-            buttonName="cancel"
-          ></Button>
+          >cancel</button>
         </div>
       </div>
     </div>

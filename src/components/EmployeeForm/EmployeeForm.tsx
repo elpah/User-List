@@ -41,7 +41,6 @@ function AddEmployeeForm({ onAddEmployee, handleFormClose }: Props) {
     <>
       <div className={styles.add_employee__modal}>
         <form className={styles.add_employee__form} onSubmit={handleSubmit}>
-        
           <h3 className={styles.add_employee_form_header}>Add New Employee</h3>
           <div className={styles.input__div}>
             <label className={styles.input__label}>Employee Number:</label>

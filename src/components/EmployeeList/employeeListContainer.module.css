@@ -1,0 +1,42 @@
+.employee__list_container {
+  width: 85%;
+  margin: auto;
+  margin-top: 80px;
+  overflow-x: auto;
+
+  table {
+    color: rgb(108, 107, 107);
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+
+    th,
+    td {
+      padding: 10px;
+      border: none;
+      border-bottom: 0.1px solid rgb(170, 170, 170);
+      text-align: center;
+    }
+
+    th {
+      background-color: rgb(0, 0, 0);
+      color: white;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+      cursor: pointer;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    table {
+      th,
+      td {
+        padding: 5px;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-.add_employee__modal {
+.edit_employee__modal {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,25 +11,22 @@
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
-
-.add_employee__form {
+.edit_employee__form {
   position: relative;
-  margin-left: 10px;
-  margin-right: 10px;
   width: 350px;
   background-color: #fff;
   color: #2e2e2e;
   padding: 20px;
   border-radius: 8px;
 }
-
-.add_employee_form_header {
+.input__div {
+  margin-bottom: 10px;
+}
+.edit_employee__form .form__header {
+  font-weight: 500;
   color: #2e2e2e;
   font-size: 20px;
   margin-bottom: 20px;
-}
-.input__div {
-  margin-bottom: 10px;
 }
 .input__label {
   display: block;
@@ -37,7 +34,7 @@
   margin-bottom: 5px;
   color: #4e4e4e;
 }
-.input__field {
+.edit_employee__form .input__field {
   width: 97%;
   height: 30px;
   padding: 5px;
@@ -46,45 +43,43 @@
   border: 1px solid rgb(142, 142, 142);
   color: #000000;
 }
-
 .button_container {
   width: 100%;
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }
-.form__button_submit,
-.form__button_close {
+.form__button_submit {
   width: 47%;
   padding: 10px 20px;
   font-size: 18px;
   font-weight: 500;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.form__button_submit {
   background-color: #128400;
   color: #fff;
   border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
-
-.form__button_close {
-  border: 1px solid #189d04;
-  color: #189d04;
-  background-color: transparent;
-}
-
 .form__button_submit:hover {
   background-color: #189d04;
 }
-
+.form__button_close {
+  width: 47%;
+  border: 1px solid #189d04;
+  color: #189d04;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+}
 .form__button_close:hover {
   color: #1ecd04;
 }
 
 @media (max-width: 768px) {
-  .add_employee__form {
+  .edit_employee__form {
     width: 90%;
     max-width: 350px;
   }
