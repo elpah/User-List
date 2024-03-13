@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import { Employee } from "../../employeeType";
-import "./employeeCard.css";
+import styles from "./employeeCard.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faPhone,
-  faEllipsisV,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import ConfirmDelete from "../ConfirmDelete/ConfirmDelete";
 
 interface Props {
@@ -25,86 +20,33 @@ export default function EmployeeCard({
 
   return (
     <>
-      <div className="employee__card">
-        <div className="initials__div-container">
-          <h2 className="employee__initials">
-            {`${employee.employeeFirstName
-              .charAt(0)
-              .toUpperCase()}.${employee.employeeLastName
-              .charAt(0)
-              .toUpperCase()}`}
-          </h2>
-
-          <button
-            className="dropdown__icon"
+      <tr className={styles.data_row}>
+        <td className={styles.data}>{employee.employeeNumber}</td>
+        <td className={styles.data}>{`${employee.employeeFirstName} ${employee.employeeLastName}`}</td>
+        <td className={styles.data}>{employee.email.toLowerCase()}</td>
+        <td className={styles.data}>{employee.phoneNumber}</td>
+        <td>
+          <button className={styles.edit_button}
+            type="button"
             onClick={() => {
-              !showCard ? setShowCard(true) : setShowCard(false);
+              setShowCard(false);
+              onEditEmployee(employee.employeeId);
             }}
           >
-            {showCard ? (
-              <FontAwesomeIcon icon={faTimes} />
-            ) : (
-              <FontAwesomeIcon icon={faEllipsisV} />
-            )}
+            <FontAwesomeIcon icon={faEdit} />
           </button>
-
-          {showCard && (
-            <div className="dropdown__card">
-              <button
-                type="button"
-                onClick={() => {
-                  setShowCard(false);
-                  setDeleteConfirm(true);
-                }}
-              >
-                delete
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setShowCard(false);
-                  onEditEmployee(employee.employeeId);
-                }}
-              >
-                edit
-              </button>
-            </div>
-          )}
-        </div>
-
-        <div className="img__name-number">
-          <img
-            className="employee__img"
-            src={employee.employeeImg}
-            alt="employee Profile Img"
-          />
-          <div className="name__number">
-            <p className="employee__fullname">{`${employee.employeeFirstName.toUpperCase()} ${employee.employeeLastName.toUpperCase()}`}</p>
-            <p className="employee__number">{employee.employeeNumber}</p>
-          </div>
-        </div>
-        <div className="email__phone">
-          <p className="employee__email">
-            <FontAwesomeIcon
-              className="email-icon"
-              style={{ color: "#4e4a4a", marginRight: 10 }}
-              icon={faEnvelope}
-            />
-            <a href={`mailto:${employee.email}`}>
-              {employee.email.toLowerCase()}
-            </a>
-          </p>
-          <p className="employee__phone">
-            <FontAwesomeIcon
-              className="phone-icon"
-              style={{ color: "#4e4a4a", marginRight: 10 }}
-              icon={faPhone}
-            />
-            <a href={`tel:${employee.phoneNumber}`}>{employee.phoneNumber}</a>
-          </p>
-        </div>
-      </div>
-
+          <button
+           className={styles.delete_button}
+            type="button"
+            onClick={() => {
+              setShowCard(false);
+              setDeleteConfirm(true);
+            }}
+          >
+            <FontAwesomeIcon icon={faTrashAlt} />
+          </button>
+        </td>
+      </tr>
       {deleteConfirm && (
         <ConfirmDelete
           confirmDelete={() => onDeleteEmployee(employee.employeeId)}

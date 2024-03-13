@@ -1,0 +1,20 @@
+.delete_button {
+  border: none;
+  background-color: inherit;
+}
+.delete_button:hover {
+  color: red;
+}
+
+.edit_button {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+.data {
+  cursor: pointer;
+}
+
+.data:hover {
+  color: rgb(21, 21, 21);
+}
